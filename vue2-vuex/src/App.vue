@@ -1,26 +1,38 @@
 <template>
   <div id="app2">
-    <img src="./assets/logo.png">
-    <h1>Hello App!</h1>
-    <firstcomponent></firstcomponent>
-    <ul>
-        <li><router-link to="/first">点我跳转到第一页</router-link></li>
-        <li><router-link to="/second">点我跳转到第二页</router-link></li>
-      </ul>
-    <router-view class="view"></router-view>
+    <h1>{{platform}}</h1>
+    <input type="button" name="test" value="test" v-on:click="test">
   </div>
 </template>
 
 <script>
-import firstcomponent from './component/firstcomponent.vue'
-import secondcomponent from './component/secondcomponent.vue'
+import { mapActions } from 'vuex'
+import { mapState } from 'vuex'
+
 export default {
   data () {
     return {
-      msg: 'Hello Vue!'
+      
     }
   },
-  components: { firstcomponent, secondcomponent }
+  computed: mapState({
+
+    platform: state => state.platform,
+
+  }),
+  mounted() {
+
+    this.$store.dispatch('setApp', 'android');
+    
+  },
+  methods: {
+
+    test: function() {
+      this.$store.dispatch('setApp', 'android1111');
+      console.log(this.platform)
+    }
+    
+  }
 }
 
 

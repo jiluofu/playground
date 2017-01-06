@@ -1,6 +1,6 @@
 <template>
   <div id="app2">
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
     <h1>Hello App!</h1>
     <firstcomponent></firstcomponent>
     <ul>
